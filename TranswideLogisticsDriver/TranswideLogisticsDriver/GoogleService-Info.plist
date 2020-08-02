@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>868747754208-ut5cdmsnjotdhla705q661f5q1fp2gcl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.868747754208-ut5cdmsnjotdhla705q661f5q1fp2gcl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyALzjbHOMyrfz9xEpgK6sq4t5aJGwArp_I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>868747754208</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Rapidzz.TranswideDriver</string>
+	<key>PROJECT_ID</key>
+	<string>transwide-logistics</string>
+	<key>STORAGE_BUCKET</key>
+	<string>transwide-logistics.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:868747754208:ios:633b5e82388f12e5e12e85</string>
+	<key>DATABASE_URL</key>
+	<string>https://transwide-logistics.firebaseio.com</string>
+</dict>
+</plist>

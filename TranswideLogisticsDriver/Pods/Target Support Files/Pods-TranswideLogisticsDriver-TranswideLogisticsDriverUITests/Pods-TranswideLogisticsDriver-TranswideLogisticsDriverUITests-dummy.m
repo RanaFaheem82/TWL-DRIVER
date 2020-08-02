@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_TranswideLogisticsDriver_TranswideLogisticsDriverUITests : NSObject
+@end
+@implementation PodsDummy_Pods_TranswideLogisticsDriver_TranswideLogisticsDriverUITests
+@end

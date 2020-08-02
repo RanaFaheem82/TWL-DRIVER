@@ -1,0 +1,185 @@
+//
+//  HomeViewController.swift
+//  TranswideLogisticsDriver
+//
+//  Created by apple on 5/2/20.
+//  Copyright © 2020 apple. All rights reserved.
+//
+
+import UIKit
+import GoogleMaps
+import GooglePlaces
+import Alamofire
+import Firebase
+
+class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMapViewDelegate , AddVehicleViewControllerDelegate{
+   
+    
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var lblAddress: UILabel!
+    var locationManager = CLLocationManager()
+       var currentLocation: CLLocation?
+       //  var mapView: GMSMapView!
+       var marker = GMSMarker()
+       var placesClient: GMSPlacesClient!
+       var zoomLevel: Float = 15.0
+        var database : DatabaseReference!
+    var isFromNotification : Bool = false
+    var lat : CLLocationDegrees!
+    var lng : CLLocationDegrees!
+    var status : String = ""
+    
+    
+    @IBOutlet weak var btnGoOnline: UIButton!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let params : ParamsAny = ["driverId" : Global.shared.user!.driverId]
+        self.getUserStatus(params: params)
+       
+        database = Database.database().reference()
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        self.mapView.delegate = self
+        placesClient = GMSPlacesClient.shared()
+        if(isFromNotification){
+            self.btnGoOnline.isHidden = true
+        }
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          self.mainContainer?.setTitle(title: MainContainerTitles.Home)
+          self.mainContainer?.setMenuButton()
+          
+      }
+    
+    @IBAction func actionGoOnline(_ sender: Any) {
+        if(status == "false"){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddVehicleViewController") as! AddVehicleViewController
+        vc.delegate = self
+        vc.isFromHome = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+        else{
+            let params : ParamsAny = ["driverId" : Global.shared.user!.driverId, "isAvailable" : "false"]
+            self.getUserOnline(params: params)
+        }
+    }
+    
+    func selectVehicle(vehicle: VehicleViewModel) {
+        self.navigationController?.popViewController(animated: true)
+        let params : ParamsAny = ["driverId" : Global.shared.user!.driverId , "regNo" : vehicle.number , "longitude" :  self.lng! ,"latitude" : self.lat! , "isAvailable" : "true"]
+               self.getUserOnline(params: params)
+       }
+    
+    
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+//MARK: LOCATION MENEGAR METHODS.
+extension HomeViewController{
+    
+    func getAddressFromLatLong(latitude: Double, longitude : Double) {
+        let url = self.getUrl(lat: latitude, lng: longitude)
+        print(url)
+        Alamofire.request(url).validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                
+                let responseJson = response.value as! NSDictionary
+                
+                if let results = responseJson.object(forKey: DictKeys.results)! as? [NSDictionary] {
+                    if results.count > 0 {
+                        let address = results[0][DictKeys.formattedAddress] as? String
+                        self.lblAddress.text = address!
+                        self.showMarker(position: self.mapView.camera.target)
+                    }
+                }
+            case .failure(_):
+                self.showAlertView(message: PopupMessages.locationNotFound)
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location: CLLocation = manager.location!
+        self.getAddressFromLatLong(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let userLocation:CLLocation = locations[0] as CLLocation
+        self.lat = userLocation.coordinate.latitude
+        self.lng = userLocation.coordinate.longitude
+        let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, zoom: 15.0)
+        mapView.camera = camera
+        if(isFromNotification){ self.database.child("rides").child("5ef3234e12d89b076a4174e4").setValue(["lat" : userLocation.coordinate.latitude ,"lng" : userLocation.coordinate.longitude , "status" : "accepted" , "name" : "Umer Bhatti" , "Rating" : "4.5 stars"])
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        self.showAlertView(message: error as! String)
+    }
+    
+    func showMarker(position : CLLocationCoordinate2D ){
+        marker.position = position
+        marker.map = mapView
+        marker.isDraggable = true
+    }
+}
+
+
+extension HomeViewController{
+    func getUserOnline(params : ParamsAny){
+        LoginService.shared().makeUserOnline(params: params) { (message, success, response) in
+            if(success){
+                if(self.status == "true"){
+                    self.status = "false"
+                    self.btnGoOnline.setTitle("GO", for: .normal)
+                    self.showAlertView(message: "You are now offline")
+                    
+                }
+                else{
+                    self.status = "true"
+                     self.btnGoOnline.setTitle("OFF", for: .normal)
+                    self.showAlertView(message: "You are now online")
+                }
+                
+            }
+            else{
+                self.showAlertView(message: "error")
+            }
+        }
+    }
+    func getUserStatus(params : ParamsAny){
+          LoginService.shared().getuserStatus(params: params) { (message, success,status, response) in
+              if(success){
+                self.status = status!
+                if(status == "true"){
+                    self.btnGoOnline.setTitle("OFF", for: .normal)
+                    self.showAlertView(message: "You are now online")
+                }
+                else{
+                     self.btnGoOnline.setTitle("GO", for: .normal)
+                      self.showAlertView(message: "You are now offline")
+                }
+                
+              }
+              else{
+                  self.showAlertView(message: "error")
+              }
+          }
+      }
+}
