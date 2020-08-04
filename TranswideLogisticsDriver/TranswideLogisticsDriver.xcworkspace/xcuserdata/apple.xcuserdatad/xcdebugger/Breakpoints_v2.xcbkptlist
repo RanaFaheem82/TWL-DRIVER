@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "application(_:didReceiveRemoteNotification:)"
+            landmarkName = "getToken()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,10 +46,10 @@
             filePath = "TranswideLogisticsDriver/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "getAddressFromLatLong(latitude:longitude:)"
-            landmarkType = "7">
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
             endingLineNumber = "147"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
             endingLineNumber = "157"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
-            landmarkType = "7">
+            landmarkName = "AppDelegate"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -244,34 +244,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B3044194-FAC2-4ADA-BFEE-D967E1004C45 - be897e2606af58d3"
+                  uuid = "B3044194-FAC2-4ADA-BFEE-D967E1004C45 - 612309d1a124aacc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TWL_DRIVER.BaseService.makePostAPICallWithMultipart(with: Swift.String, dict: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Foundation.Data&gt;&gt;, params: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, completion: (Swift.String, Swift.Bool, Swift.Optional&lt;SwiftyJSON.JSON&gt;, Swift.Optional&lt;TWL_DRIVER.ServiceResponseType&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "TWL DRIVER"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Downloads/TranswideLogisticsDriver/TranswideLogisticsDriver/Library/Service/BaseServices/BaseService.swift"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Library/Service/BaseServices/BaseService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "385">
+                  offsetFromSymbolStart = "500">
                </Location>
                <Location
-                  uuid = "B3044194-FAC2-4ADA-BFEE-D967E1004C45 - 936bced981d56240"
+                  uuid = "B3044194-FAC2-4ADA-BFEE-D967E1004C45 - 4cc1b92e265e905f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in TWL_DRIVER.BaseService.makePostAPICallWithMultipart(with: Swift.String, dict: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Foundation.Data&gt;&gt;, params: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, completion: (Swift.String, Swift.Bool, Swift.Optional&lt;SwiftyJSON.JSON&gt;, Swift.Optional&lt;TWL_DRIVER.ServiceResponseType&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "TWL DRIVER"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Downloads/TranswideLogisticsDriver/TranswideLogisticsDriver/Library/Service/BaseServices/BaseService.swift"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Library/Service/BaseServices/BaseService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
                   endingLineNumber = "83"
-                  offsetFromSymbolStart = "216">
+                  offsetFromSymbolStart = "184">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -372,34 +372,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B1429A30-E8E8-45A8-BF6D-741053B71B84 - 14eee600d4efb7b7"
+                  uuid = "B1429A30-E8E8-45A8-BF6D-741053B71B84 - d1da977e3ff6faca"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.String, Swift.Bool, Swift.Optional&lt;TWL_DRIVER.UserViewModel&gt;, Swift.Optional&lt;TWL_DRIVER.ServiceResponseType&gt;) -&gt; () in TWL_DRIVER.LoginViewController.getUserLogin(params: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
                   moduleName = "TWL DRIVER"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Downloads/TranswideLogisticsDriver/TranswideLogisticsDriver/ViewControllers/LoginViewController.swift"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/ViewControllers/LoginViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "49"
                   endingLineNumber = "49"
-                  offsetFromSymbolStart = "259">
+                  offsetFromSymbolStart = "248">
                </Location>
                <Location
-                  uuid = "B1429A30-E8E8-45A8-BF6D-741053B71B84 - a93acf1b2f8fab39"
+                  uuid = "B1429A30-E8E8-45A8-BF6D-741053B71B84 - 6c0ebe65c496e644"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.String, Swift.Bool, Swift.Optional&lt;TWL_DRIVER.UserViewModel&gt;, Swift.Optional&lt;TWL_DRIVER.ServiceResponseType&gt;) -&gt; () in TWL_DRIVER.LoginViewController.getUserLogin(params: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
                   moduleName = "TWL DRIVER"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Downloads/TranswideLogisticsDriver/TranswideLogisticsDriver/ViewControllers/LoginViewController.swift"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/ViewControllers/LoginViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "50"
                   endingLineNumber = "50"
-                  offsetFromSymbolStart = "166">
+                  offsetFromSymbolStart = "192">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -456,7 +456,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "30FFF61E-3491-4008-ADDF-32A6B8EE9C6D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TranswideLogisticsDriver/Home/HomeViewController.swift"
@@ -464,8 +464,340 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "actionGoOnline(_:)"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C7B9AFD-93AF-47D6-9C2A-A2636DCC53F9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "279044B4-CF18-4A60-8EE3-A5F523749EF9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E386884-EE04-4D0E-A9FC-3101B90606AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CFAE076-FD9C-4A05-8071-7205DEEF9FA4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "getToken()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0CFAE076-FD9C-4A05-8071-7205DEEF9FA4 - 231595e9b5ad9d5e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRInstanceIDResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TWL_DRIVER.AppDelegate.getToken() -&gt; ()"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "1204">
+               </Location>
+               <Location
+                  uuid = "0CFAE076-FD9C-4A05-8071-7205DEEF9FA4 - 231595e9b5ad9d5e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRInstanceIDResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TWL_DRIVER.AppDelegate.getToken() -&gt; ()"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "1228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5300FF0-7F88-449A-8BAF-60DB8FF607ED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "application(_:didDiscardSceneSessions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EDF7179-BBBE-4914-8562-F43BEF2272A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/ViewControllers/NearbyRequestDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "configureView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5EDF7179-BBBE-4914-8562-F43BEF2272A9 - 380523c3fa6b2fd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.NearbyRequestDetailsViewController.configureView() -&gt; ()"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/ViewControllers/NearbyRequestDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "5EDF7179-BBBE-4914-8562-F43BEF2272A9 - ed997155925a838b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in TWL_DRIVER.NearbyRequestDetailsViewController.configureView() -&gt; ()"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/ViewControllers/NearbyRequestDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62E68539-6165-4E94-9BB2-EDD100312923"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/ViewControllers/SettingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "492D1C07-7EE6-4BBD-8FCD-A91605050070"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/Base Classes/BaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "logoutUserAccount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BCBCDCE-9577-4F6D-AAA7-866A597CD812"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/Base Classes/BaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "logoutUserAccount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70F512EA-4FE9-48A4-90F3-077000A305CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/Base Classes/BaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "BaseViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94328776-7120-4D41-B385-752A4D44CE7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ReceiverTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "94328776-7120-4D41-B385-752A4D44CE7B - 1b838cbb58eb405f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.ReceiverTableViewCell.lblMessage.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "94328776-7120-4D41-B385-752A4D44CE7B - f1618b93d499e453"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.ReceiverTableViewCell.lblMessage.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "94328776-7120-4D41-B385-752A4D44CE7B - cb978612842ae762"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.ReceiverTableViewCell.lblMessage.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "94328776-7120-4D41-B385-752A4D44CE7B - d9d7089f86054532"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.ReceiverTableViewCell.lblMessage.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "94328776-7120-4D41-B385-752A4D44CE7B - b344a4c34f01f61f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.ReceiverTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; TWL_DRIVER.ReceiverTableViewCell"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "94328776-7120-4D41-B385-752A4D44CE7B - 8b91cc29565ffb72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TWL_DRIVER.ReceiverTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TWL_DRIVER.ReceiverTableViewCell&gt;"
+                  moduleName = "TWL DRIVER"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/Rapiddz_Projects/TWL-DRIVER/TranswideLogisticsDriver/TranswideLogisticsDriver/Views/TableViewCells/ReceiverTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

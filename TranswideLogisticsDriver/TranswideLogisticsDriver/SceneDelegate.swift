@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+         self.setupInitialController(session, options: connectionOptions)
     }
 
     @available(iOS 13.0, *)
@@ -53,7 +54,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    @available(iOS 13.0, *)
+    fileprivate func setupInitialController(_ session:UISceneSession, options:UIScene.ConnectionOptions) {
+      if window == nil {
+        let windowScene = UIWindowScene(session: session, connectionOptions: options)
+        window = UIWindow(windowScene: windowScene)
+      }
+       let isLogin = UserDefaultsManager.shared.isUserLoggedIn
+             Global.shared.isLogedIn = isLogin
+             var vc: UIViewController!
+             
+             if(isLogin){
+                 Global.shared.user = UserDefaultsManager.shared.loggedInUserInfo!
+                 let storyBoard = UIStoryboard(name: StoryboardNames.Main, bundle: nil)
+                 vc = storyBoard.instantiateViewController(withIdentifier: ControllerIdentifier.KYDrawerController) as! KYDrawerController
+             }else {
+                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                            vc = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+             }
+             let navigationController = BaseNavigationController(rootViewController: vc)
+            navigationController.navigationBar.isHidden = true
+             window?.rootViewController = navigationController
+             window?.makeKeyAndVisible()
+    }
 }
 

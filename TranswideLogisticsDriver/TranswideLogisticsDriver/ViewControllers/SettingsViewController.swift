@@ -11,8 +11,8 @@ import UIKit
 class SettingsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let settingArray = ["Home","My Profile","My Vehicle","Personal Document","Change Password","Logout"]
-    let imageArray = ["home","profile-1","t","document","password","back-1"]
+    let settingArray = ["Home","My Profile","My Vehicle","Personal Document","Logout"]
+    let imageArray = ["home","profile-1","t","document","back-1"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
         }
         else if(indexPath.row == 3){
             mainVC.showPersonalDocumentController()
+        }
+        else if(indexPath.row == 4){
+            self.logoutUserAccount()
         }
         
     }

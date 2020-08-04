@@ -11,7 +11,7 @@ class Global {
         return Static.instance
     }
     
-  
+    var vehicle : VehicleViewModel?
     var user:UserViewModel?
     var FCMToken:String? = ""
     var isLogedIn:Bool = false

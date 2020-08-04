@@ -96,7 +96,7 @@ struct EndPoints {
     static let newPassword   = "new-password"
     static let getFavouritelist       = "get-favourite-list"
     static let remove_favourite         = "remove-favourite"
-    static let BASE_URL                 = "http://fe32c8a85c45.ngrok.io/"
+    static let BASE_URL                 = "http://9bef1412ae23.ngrok.io/"
     //static let BASE_URL                 = "http://mashghol.com/tawrid/public/api/"
     //static let logout                   = "\(Global.shared.url)/driverapi/logout"
     static let login                    = "driver/login"

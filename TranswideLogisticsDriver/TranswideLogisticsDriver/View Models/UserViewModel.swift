@@ -66,9 +66,9 @@ class UserViewModel:NSObject, NSCoding {
         aCoder.encode(self.name , forKey: "name")
         aCoder.encode(self.driverId, forKey: "driverId")
         aCoder.encode(self.cnic, forKey: "cnic")
-        aCoder.encode(self.phoneNumber, forKey: "address")
-        aCoder.encode(self.fcmToken, forKey: "phoneNumber")
-        aCoder.encode(self.profileImg, forKey: "fcmToken")
-        aCoder.encode(self.address, forKey: "profileImg")
+        aCoder.encode(self.phoneNumber, forKey: "phoneNumber")
+        aCoder.encode(self.fcmToken, forKey: "fcmToken")
+        aCoder.encode(self.profileImg, forKey: "profileImg")
+        aCoder.encode(self.address, forKey: "address")
     }
 }

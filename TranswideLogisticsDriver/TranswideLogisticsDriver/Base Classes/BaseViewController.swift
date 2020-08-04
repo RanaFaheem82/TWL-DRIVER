@@ -360,11 +360,11 @@ extension BaseViewController{
         UserDefaultsManager.shared.clearUserData()
         UserDefaultsManager.shared.clearCart()
         let storyboard = UIStoryboard(name: StoryboardNames.Main, bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: ControllerIdentifier.LoginViewController) as! LoginViewController
-//        if let container = self.navigationController?.navigationController?.parent as? KYDrawerController {
-//            container.navigationController?.setViewControllers([controller], animated: true)
-//            container.navigationController?.popToRootViewController(animated: true)
-//        }
+        let controller = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+          if let container = self.navigationController?.parent as? KYDrawerController {
+                     container.navigationController?.setViewControllers([controller], animated: true)
+                     container.navigationController?.popToRootViewController(animated: true)
+                 }
     }
 }
 

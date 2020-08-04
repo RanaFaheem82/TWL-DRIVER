@@ -18,6 +18,10 @@
 		184C87C8245DBB8800DE8774 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C87C7245DBB8800DE8774 /* SignUpViewController.swift */; };
 		184C87CA245DBC2C00DE8774 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C87C9245DBC2C00DE8774 /* MainViewController.swift */; };
 		184C87CE245DC72C00DE8774 /* VerfiyNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C87CD245DC72700DE8774 /* VerfiyNumberViewController.swift */; };
+		1859828624D9B3BC00B232C5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859828524D9B3BB00B232C5 /* ChatViewController.swift */; };
+		1859828924D9B40000B232C5 /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859828724D9B3FF00B232C5 /* ReceiverTableViewCell.swift */; };
+		1859828A24D9B40000B232C5 /* SenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859828824D9B3FF00B232C5 /* SenderTableViewCell.swift */; };
+		1859828C24D9B41000B232C5 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859828B24D9B40F00B232C5 /* ChatViewModel.swift */; };
 		187B40862459183E001A3E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B40852459183E001A3E4A /* AppDelegate.swift */; };
 		187B40882459183E001A3E4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B40872459183E001A3E4A /* SceneDelegate.swift */; };
 		187B408A2459183E001A3E4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B40892459183E001A3E4A /* ViewController.swift */; };
@@ -142,6 +146,10 @@
 		184C87C7245DBB8800DE8774 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		184C87C9245DBC2C00DE8774 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		184C87CD245DC72700DE8774 /* VerfiyNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerfiyNumberViewController.swift; sourceTree = "<group>"; };
+		1859828524D9B3BB00B232C5 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		1859828724D9B3FF00B232C5 /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
+		1859828824D9B3FF00B232C5 /* SenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SenderTableViewCell.swift; sourceTree = "<group>"; };
+		1859828B24D9B40F00B232C5 /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		187B40822459183E001A3E4A /* TWL DRIVER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWL DRIVER.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		187B40852459183E001A3E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187B40872459183E001A3E4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -595,6 +603,7 @@
 		187B410C24591A9B001A3E4A /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				1859828B24D9B40F00B232C5 /* ChatViewModel.swift */,
 				187B410D24591A9B001A3E4A /* UserViewModel.swift */,
 				187B410F24591A9B001A3E4A /* RegisterListViewModel.swift */,
 				187B411C24591A9B001A3E4A /* FCMNotificationViewModel.swift */,
@@ -626,6 +635,8 @@
 		187B412E24591A9B001A3E4A /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				1859828724D9B3FF00B232C5 /* ReceiverTableViewCell.swift */,
+				1859828824D9B3FF00B232C5 /* SenderTableViewCell.swift */,
 				187B41D324592400001A3E4A /* SettingsTableViewCell.swift */,
 				181025482459424500FF72E7 /* AddVehicleTableViewCell.swift */,
 			);
@@ -694,6 +705,7 @@
 		187B41D024592328001A3E4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1859828524D9B3BB00B232C5 /* ChatViewController.swift */,
 				184C87CD245DC72700DE8774 /* VerfiyNumberViewController.swift */,
 				187B41D12459233F001A3E4A /* SettingsViewController.swift */,
 				181025462459402100FF72E7 /* AddVehicleViewController.swift */,
@@ -1042,6 +1054,7 @@
 				187B418024591A9C001A3E4A /* ServiceResponseType.swift in Sources */,
 				181731CE24A7618800598D19 /* NearbyRequestDetailsViewController.swift in Sources */,
 				187B415D24591A9C001A3E4A /* MKRotationView.swift in Sources */,
+				1859828C24D9B41000B232C5 /* ChatViewModel.swift in Sources */,
 				187B417C24591A9C001A3E4A /* ResponseHandler.swift in Sources */,
 				187B417A24591A9C001A3E4A /* ActiveBuilder.swift in Sources */,
 				187B417624591A9C001A3E4A /* KMPlaceholderTextView.swift in Sources */,
@@ -1062,6 +1075,7 @@
 				187B41D22459233F001A3E4A /* SettingsViewController.swift in Sources */,
 				187B415724591A9C001A3E4A /* TPKeyboardAvoidingTableView.m in Sources */,
 				181025492459424600FF72E7 /* AddVehicleTableViewCell.swift in Sources */,
+				1859828924D9B40000B232C5 /* ReceiverTableViewCell.swift in Sources */,
 				187B417F24591A9C001A3E4A /* ServiceRequestMessage.swift in Sources */,
 				187B417824591A9C001A3E4A /* RegexParser.swift in Sources */,
 				184C87CA245DBC2C00DE8774 /* MainViewController.swift in Sources */,
@@ -1072,6 +1086,7 @@
 				187B417B24591A9C001A3E4A /* ActiveType.swift in Sources */,
 				187B41C724591A9C001A3E4A /* UIView+Extension.swift in Sources */,
 				187B41C024591A9C001A3E4A /* BaseView.swift in Sources */,
+				1859828624D9B3BC00B232C5 /* ChatViewController.swift in Sources */,
 				187B416724591A9C001A3E4A /* KYEmbedMainControllerSegue.swift in Sources */,
 				187B418924591A9C001A3E4A /* UpdateProfileService.swift in Sources */,
 				187B41B624591A9C001A3E4A /* NoDataView.swift in Sources */,
@@ -1085,6 +1100,7 @@
 				187B41CE24591B3B001A3E4A /* MainContainerViewController.swift in Sources */,
 				187B417D24591A9C001A3E4A /* BaseService.swift in Sources */,
 				184C87CE245DC72C00DE8774 /* VerfiyNumberViewController.swift in Sources */,
+				1859828A24D9B40000B232C5 /* SenderTableViewCell.swift in Sources */,
 				187B416424591A9C001A3E4A /* SWRevealViewController.m in Sources */,
 				187B40862459183E001A3E4A /* AppDelegate.swift in Sources */,
 				187B416824591A9C001A3E4A /* BReachability.swift in Sources */,

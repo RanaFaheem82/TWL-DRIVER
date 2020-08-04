@@ -65,6 +65,7 @@ class VerfiyNumberViewController: BaseViewController{
             }
             else{
                 Global.shared.user = self.user
+                self.saveUserInfo(self.user)
                 self.showAlertView(message: ValidationMessages.PhoneNumberVerified, title: LocalStrings.success, doneButtonTitle: LocalStrings.ok) { (action) in
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "KYDrawerController") as! KYDrawerController
                             self.navigationController?.pushViewController(vc, animated: true)

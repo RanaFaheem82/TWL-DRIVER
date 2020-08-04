@@ -26,7 +26,7 @@ class NearbyRequestDetailsViewController: BaseViewController {
     func configureView(){
          self.database = Database.database().reference()
         print(Global.shared.requestId)
-        self.database.child("rides").child("5ef3234e12d89b076a4174e4").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.database.child("rides").child(Global.shared.requestId).observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
           let value = snapshot.value as? NSDictionary
             self.lblPickup.text = value?["pickup"] as? String ?? ""

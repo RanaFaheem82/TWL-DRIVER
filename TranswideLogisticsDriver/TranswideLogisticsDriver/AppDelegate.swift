@@ -37,9 +37,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         GMSServices.provideAPIKey(APIKeys.googleApiKey)
                GMSPlacesClient.provideAPIKey(APIKeys.googleApiKey)
          IQKeyboardManager.shared.enable = true
+        self.setInitialViewController()
        self.getToken()
         // Override point for customization after application launch.
         return true
+    }
+    
+    func setInitialViewController()  {
+        let isLogin = UserDefaultsManager.shared.isUserLoggedIn
+        Global.shared.isLogedIn = isLogin
+        var vc: UIViewController!
+        
+        if(isLogin){
+            Global.shared.user = UserDefaultsManager.shared.loggedInUserInfo!
+            let storyBoard = UIStoryboard(name: StoryboardNames.Main, bundle: nil)
+            vc = storyBoard.instantiateViewController(withIdentifier: ControllerIdentifier.KYDrawerController) as! KYDrawerController
+        }else {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                       vc = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        }
+        let navigationController = BaseNavigationController(rootViewController: vc)
+        navigationController.navigationBar.isHidden = true
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     // MARK: UISceneSession Lifecycle
@@ -145,6 +165,16 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     // Messaging.messaging().appDidReceiveMessage(userInfo)
 
     // Print message ID.
+//    let notificationData = notification.request.content.userInfo
+//               Global.shared.requestId = notificationData["gcm.notification.requestId"] as! String
+//           
+//               let mainController = self.getMainContainer()
+//               if let controller = mainController as? MainContainerViewController {
+//                   controller.showNearbyRequestController()
+//                  
+//               }else {
+//                  
+//               }
     if let messageID = userInfo[gcmMessageIDKey] {
       print("Message ID: \(messageID)")
     }

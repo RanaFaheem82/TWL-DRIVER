@@ -15,6 +15,7 @@ import Firebase
 class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMapViewDelegate , AddVehicleViewControllerDelegate{
    
     
+    @IBOutlet weak var btnChat: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var lblAddress: UILabel!
     var locationManager = CLLocationManager()
@@ -33,9 +34,12 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
     @IBOutlet weak var btnGoOnline: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(!isFromNotification){
+            self.btnChat.isHidden = true
         let params : ParamsAny = ["driverId" : Global.shared.user!.driverId]
         self.getUserStatus(params: params)
-       
+        }
+        
         database = Database.database().reference()
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -46,6 +50,7 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
         self.mapView.delegate = self
         placesClient = GMSPlacesClient.shared()
         if(isFromNotification){
+              self.btnChat.isHidden = false
             self.btnGoOnline.isHidden = true
         }
         // Do any additional setup after loading the view.
@@ -56,6 +61,13 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
           self.mainContainer?.setMenuButton()
           
       }
+    
+    @IBAction func actionChat(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        vc.otherUserId = Global.shared.requestId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     @IBAction func actionGoOnline(_ sender: Any) {
         if(status == "false"){
@@ -71,6 +83,7 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
     }
     
     func selectVehicle(vehicle: VehicleViewModel) {
+        Global.shared.vehicle = vehicle
         self.navigationController?.popViewController(animated: true)
         let params : ParamsAny = ["driverId" : Global.shared.user!.driverId , "regNo" : vehicle.number , "longitude" :  self.lng! ,"latitude" : self.lat! , "isAvailable" : "true"]
                self.getUserOnline(params: params)
@@ -124,13 +137,13 @@ extension HomeViewController{
         self.lng = userLocation.coordinate.longitude
         let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, zoom: 15.0)
         mapView.camera = camera
-        if(isFromNotification){ self.database.child("rides").child("5ef3234e12d89b076a4174e4").setValue(["lat" : userLocation.coordinate.latitude ,"lng" : userLocation.coordinate.longitude , "status" : "accepted" , "name" : "Umer Bhatti" , "Rating" : "4.5 stars"])
+        if(isFromNotification){ self.database.child("rides").child(Global.shared.requestId).setValue(["lat" : userLocation.coordinate.latitude ,"lng" : userLocation.coordinate.longitude , "status" : "accepted" , "name" : Global.shared.user!.name , "Rating" : "4.5 stars" , "vehicleName" : Global.shared.vehicle!.name , "vehicleNumber" : Global.shared.vehicle!.number ,"vehicleColor" : Global.shared.vehicle!.color , "driverId" : Global.shared.user!.driverId])
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
-        self.showAlertView(message: error as! String)
+        //self.showAlertView(message: error as! String)
     }
     
     func showMarker(position : CLLocationCoordinate2D ){
