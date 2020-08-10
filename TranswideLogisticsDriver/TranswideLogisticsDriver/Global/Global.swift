@@ -23,6 +23,7 @@ class Global {
     var fcmNotification: FCMNotificationViewModel?
     var controllerTitle = ""
     var requestId = ""
+    var isInRide : Bool = false
        var currentNavigationController = ""
        var currentStoryBoard = ""
        

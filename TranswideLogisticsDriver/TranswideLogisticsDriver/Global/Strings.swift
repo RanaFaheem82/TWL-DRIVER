@@ -6,7 +6,7 @@ import UIKit
 typealias ParamsAny = [String:Any]
 typealias ParamsString = [String:String]
 
-let ALERT_TITLE_APP_NAME = "Avocado"
+let ALERT_TITLE_APP_NAME = "TRANSWIDE LOGISTICS"
 let EMAIL_REGULAR_EXPRESSION = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 let ERROR_NO_NETWORK = "Connection lost. Please check your internet connection and try again."
 let NoInternet = "Network error"

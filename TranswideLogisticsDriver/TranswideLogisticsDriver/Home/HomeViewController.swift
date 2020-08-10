@@ -15,6 +15,8 @@ import Firebase
 class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMapViewDelegate , AddVehicleViewControllerDelegate{
    
     
+    @IBOutlet weak var lblSeprator: UILabel!
+    @IBOutlet weak var btnReached: UIButton!
     @IBOutlet weak var btnChat: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var lblAddress: UILabel!
@@ -29,13 +31,17 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
     var lat : CLLocationDegrees!
     var lng : CLLocationDegrees!
     var status : String = ""
+    var isReach = false
+    var isStart = false
     
     
     @IBOutlet weak var btnGoOnline: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         if(!isFromNotification){
+            self.lblSeprator.isHidden = true
             self.btnChat.isHidden = true
+            self.btnReached.isHidden = true
         let params : ParamsAny = ["driverId" : Global.shared.user!.driverId]
         self.getUserStatus(params: params)
         }
@@ -50,7 +56,9 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
         self.mapView.delegate = self
         placesClient = GMSPlacesClient.shared()
         if(isFromNotification){
-              self.btnChat.isHidden = false
+            self.lblSeprator.isHidden = false
+            self.btnChat.isHidden = false
+            self.btnReached.isHidden = false
             self.btnGoOnline.isHidden = true
         }
         // Do any additional setup after loading the view.
@@ -59,6 +67,13 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
           super.viewWillAppear(animated)
           self.mainContainer?.setTitle(title: MainContainerTitles.Home)
           self.mainContainer?.setMenuButton()
+        if(Global.shared.isInRide){
+            self.isFromNotification = true
+        }
+        else{
+            self.isFromNotification = false
+            
+        }
           
       }
     
@@ -68,6 +83,22 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func actionReachedLocation(_ sender: Any) {
+        
+        if(self.isStart){
+            let params : ParamsAny = ["driverId" : Global.shared.user!.driverId,"userId": Global.shared.requestId,"fare":"5000"]
+            self.endRide(params: params)
+        }
+        else if(self.isReach){
+            let params : ParamsAny = ["userId" : Global.shared.requestId]
+            self.startRide(params: params)
+        }
+        
+        else{
+            let params : ParamsAny = ["userId" : Global.shared.requestId]
+        self.reached(params: params)
+      }
+    }
     
     @IBAction func actionGoOnline(_ sender: Any) {
         if(status == "false"){
@@ -156,7 +187,11 @@ extension HomeViewController{
 
 extension HomeViewController{
     func getUserOnline(params : ParamsAny){
+        self.startActivity()
+               GCD.async(.Background){
         LoginService.shared().makeUserOnline(params: params) { (message, success, response) in
+            GCD.async(.Main){
+                self.stopActivity()
             if(success){
                 if(self.status == "true"){
                     self.status = "false"
@@ -176,9 +211,15 @@ extension HomeViewController{
             }
         }
     }
+        }
+    }
     func getUserStatus(params : ParamsAny){
+        self.startActivity()
+        GCD.async(.Background){
           LoginService.shared().getuserStatus(params: params) { (message, success,status, response) in
-              if(success){
+              GCD.async(.Main){
+                                              self.stopActivity()
+            if(success){
                 self.status = status!
                 if(status == "true"){
                     self.btnGoOnline.setTitle("OFF", for: .normal)
@@ -194,5 +235,63 @@ extension HomeViewController{
                   self.showAlertView(message: "error")
               }
           }
+    }
+}
       }
+    
+    func reached(params : ParamsAny){
+        self.startActivity()
+                            GCD.async(.Background){
+        LoginService.shared().reachLocation(params: params) { (message, success, response) in
+          GCD.async(.Main){
+                                   self.stopActivity()
+            if(success){
+                self.isReach = true
+                self.btnReached.setTitle("Start Shipment", for: .normal)
+            }
+            else{
+                print("faliure")
+            }
+        }
+    }
+        }
+    }
+    func startRide(params : ParamsAny){
+        self.startActivity()
+                     GCD.async(.Background){
+        LoginService.shared().startRide(params: params) { (message, success, response) in
+           GCD.async(.Main){
+                          self.stopActivity()
+            if(success){
+                self.isReach = false
+                self.isStart = true
+                self.btnReached.setTitle("End Shipment", for: .normal)
+            }
+            else{
+                print("failure")
+            }
+            }
+                        }
+        }
+    }
+    func endRide(params : ParamsAny){
+        self.startActivity()
+               GCD.async(.Background){
+           LoginService.shared().endRide(params: params) { (message, success, response) in
+              GCD.async(.Main){
+                self.stopActivity()
+            if(success){
+                
+                if let container = self.mainContainer{
+            self.database.child("rides").child(Global.shared.requestId).removeAllObservers()
+                    container.showHomeController()
+                }
+               }
+               else{
+                 print("Failure")
+               }
+           }
+        }
+    }
+}
 }

@@ -84,6 +84,10 @@ struct TokenStartPoint{
 }
 
 struct EndPoints {
+    static let end = "accepted/completed"
+    static let start = "available/message/startRide"
+    static let reach = "available/message/locationReach"
+    static let accepted = "accepted"
     static let applicationJson = "application/json"
     static let createAuthCapture = "create-auth-capture"
     static let nearbySuppliers = "near-by"
@@ -96,9 +100,10 @@ struct EndPoints {
     static let newPassword   = "new-password"
     static let getFavouritelist       = "get-favourite-list"
     static let remove_favourite         = "remove-favourite"
-    static let BASE_URL                 = "http://9bef1412ae23.ngrok.io/"
+    static let BASE_URL                 = "http://fe63e9b5c74e.ngrok.io/"
     //static let BASE_URL                 = "http://mashghol.com/tawrid/public/api/"
     //static let logout                   = "\(Global.shared.url)/driverapi/logout"
+    
     static let login                    = "driver/login"
     static let Register                 = "driver/signup"
     static let update_fcm_tocken        = "update_fcm_token"

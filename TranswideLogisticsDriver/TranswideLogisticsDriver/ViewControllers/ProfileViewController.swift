@@ -10,11 +10,24 @@ import UIKit
 
 class ProfileViewController: BaseViewController {
 
+    @IBOutlet weak var lblCnic: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblNumber: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configure()
 
         // Do any additional setup after loading the view.
     }
+    
+    func configure(){
+        self.lblCnic.text = Global.shared.user!.cnic
+        self.lblAddress.text = Global.shared.user!.address
+        self.lblName.text = Global.shared.user!.name
+        self.lblNumber.text = Global.shared.user!.phoneNumber
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
              super.viewWillAppear(animated)
              self.mainContainer?.setTitle(title: "My Profile")

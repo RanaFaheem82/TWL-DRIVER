@@ -45,7 +45,11 @@ class SignUpViewController: BaseViewController {
 
 extension SignUpViewController {
     func getUserRegister(params : ParamsString){
+        self.startActivity()
+        GCD.async(.Background){
         LoginService.shared().getuserRegister(params: params, dict: nil) { (message, success, user, response) in
+            GCD.async(.Main){
+                self.stopActivity()
             if(success){
                 self.showAlertView(message: "Account Registered SuccesFully", title: ALERT_TITLE_APP_NAME, doneButtonTitle: LocalStrings.ok) { (action) in
                                            self.navigationController?.popViewController(animated: true)
@@ -54,6 +58,8 @@ extension SignUpViewController {
             else{
                 self.showAlertView(message: "Failed to register your profile please try again later")
             }
+          }
         }
+      }
     }
 }

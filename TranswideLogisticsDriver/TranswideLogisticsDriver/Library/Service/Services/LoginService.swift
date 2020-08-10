@@ -358,6 +358,132 @@ class LoginService : BaseService{
                 })
 
         }
-       
-    
+    func acceptRequest(params:Parameters?,completion: @escaping (_ error: String, _ success: Bool, _ statusType: ServiceResponseType?)->Void){
+
+        let completeURL = EndPoints.BASE_URL + EndPoints.accepted
+            print("Params \(params!)")
+            print("URL \(completeURL)")
+        dataRequest = sessionManager.request(completeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+
+            dataRequest?
+                .validate(statusCode: 200...500)
+                .responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        let parsedResponse = ResponseHandler.handleResponse(json)
+                        let resType = parsedResponse.serviceResponseType
+                        if parsedResponse.serviceResponseType == .Success {
+                            print(json)
+                            let data = parsedResponse.swiftyJsonData
+    //                        self.saveUserInfo(userInfo)
+                            completion(parsedResponse.message,true,resType)
+                        }else {
+                            completion(parsedResponse.message,false,resType)
+                        }
+
+                    case .failure(let error):
+                        let errorMessage:String = error.localizedDescription
+                        print(errorMessage)
+                        completion(errorMessage, false , nil)
+                    }
+                })
+
+        }
+    func reachLocation(params:Parameters?,completion: @escaping (_ error: String, _ success: Bool, _ statusType: ServiceResponseType?)->Void){
+
+           let completeURL = EndPoints.BASE_URL + EndPoints.reach
+               print("Params \(params!)")
+               print("URL \(completeURL)")
+           dataRequest = sessionManager.request(completeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+
+               dataRequest?
+                   .validate(statusCode: 200...500)
+                   .responseJSON(completionHandler: { response in
+                       switch response.result {
+                       case .success(let value):
+                           let json = JSON(value)
+                           let parsedResponse = ResponseHandler.handleResponse(json)
+                           let resType = parsedResponse.serviceResponseType
+                           if parsedResponse.serviceResponseType == .Success {
+                               print(json)
+                               let data = parsedResponse.swiftyJsonData
+       //                        self.saveUserInfo(userInfo)
+                               completion(parsedResponse.message,true,resType)
+                           }else {
+                               completion(parsedResponse.message,false,resType)
+                           }
+
+                       case .failure(let error):
+                           let errorMessage:String = error.localizedDescription
+                           print(errorMessage)
+                           completion(errorMessage, false , nil)
+                       }
+                   })
+
+           }
+    func startRide(params:Parameters?,completion: @escaping (_ error: String, _ success: Bool, _ statusType: ServiceResponseType?)->Void){
+
+              let completeURL = EndPoints.BASE_URL + EndPoints.start
+                  print("Params \(params!)")
+                  print("URL \(completeURL)")
+              dataRequest = sessionManager.request(completeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+
+                  dataRequest?
+                      .validate(statusCode: 200...500)
+                      .responseJSON(completionHandler: { response in
+                          switch response.result {
+                          case .success(let value):
+                              let json = JSON(value)
+                              let parsedResponse = ResponseHandler.handleResponse(json)
+                              let resType = parsedResponse.serviceResponseType
+                              if parsedResponse.serviceResponseType == .Success {
+                                  print(json)
+                                  let data = parsedResponse.swiftyJsonData
+          //                        self.saveUserInfo(userInfo)
+                                  completion(parsedResponse.message,true,resType)
+                              }else {
+                                  completion(parsedResponse.message,false,resType)
+                              }
+
+                          case .failure(let error):
+                              let errorMessage:String = error.localizedDescription
+                              print(errorMessage)
+                              completion(errorMessage, false , nil)
+                          }
+                      })
+
+              }
+    func endRide(params:Parameters?,completion: @escaping (_ error: String, _ success: Bool, _ statusType: ServiceResponseType?)->Void){
+
+        let completeURL = EndPoints.BASE_URL + EndPoints.end
+            print("Params \(params!)")
+            print("URL \(completeURL)")
+        dataRequest = sessionManager.request(completeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+
+            dataRequest?
+                .validate(statusCode: 200...500)
+                .responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        let parsedResponse = ResponseHandler.handleResponse(json)
+                        let resType = parsedResponse.serviceResponseType
+                        if parsedResponse.serviceResponseType == .Success {
+                            print(json)
+                            let data = parsedResponse.swiftyJsonData
+    //                        self.saveUserInfo(userInfo)
+                            completion(parsedResponse.message,true,resType)
+                        }else {
+                            completion(parsedResponse.message,false,resType)
+                        }
+
+                    case .failure(let error):
+                        let errorMessage:String = error.localizedDescription
+                        print(errorMessage)
+                        completion(errorMessage, false , nil)
+                    }
+                })
+
+        }
 }

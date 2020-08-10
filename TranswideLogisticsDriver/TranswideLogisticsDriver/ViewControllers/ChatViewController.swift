@@ -19,7 +19,6 @@ class ChatViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.estimatedRowHeight = 80
         Database.database().reference().child("chats").child(Global.shared.user!.driverId).child(self.otherUserId).observe(.childAdded, with: { (snap) in
         
         if snap.exists() {
@@ -82,7 +81,9 @@ extension ChatViewController : UITableViewDelegate,UITableViewDataSource{
                   return cell
                }
     }
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
  
     

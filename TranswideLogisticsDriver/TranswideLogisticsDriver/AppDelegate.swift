@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     
     func setInitialViewController()  {
         let isLogin = UserDefaultsManager.shared.isUserLoggedIn
+        let isInRide = UserDefaultsManager.shared.isInRide
         Global.shared.isLogedIn = isLogin
         var vc: UIViewController!
         
@@ -52,6 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
             Global.shared.user = UserDefaultsManager.shared.loggedInUserInfo!
             let storyBoard = UIStoryboard(name: StoryboardNames.Main, bundle: nil)
             vc = storyBoard.instantiateViewController(withIdentifier: ControllerIdentifier.KYDrawerController) as! KYDrawerController
+            if(isInRide){
+                Global.shared.isInRide = true
+                Global.shared.requestId = UserDefaultsManager.shared.rideId
+            }
+            else{
+                Global.shared.isInRide = false
+            }
+            
         }else {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                        vc = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
@@ -191,6 +200,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                               withCompletionHandler completionHandler: @escaping () -> Void) {
             let notificationData = response.notification.request.content.userInfo
             Global.shared.requestId = notificationData["gcm.notification.requestId"] as! String
+    
         
             let mainController = self.getMainContainer()
             if let controller = mainController as? MainContainerViewController {

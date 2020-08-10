@@ -43,9 +43,9 @@ class NearbyRequestDetailsViewController: BaseViewController {
     }
     
     @IBAction func actionAccept(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        vc.isFromNotification = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        let params : ParamsAny = ["driverId" : Global.shared.user!.driverId , "userId" : Global.shared.requestId]
+        self.rideAccept(params: params)
+        
         
     }
     
@@ -64,4 +64,27 @@ class NearbyRequestDetailsViewController: BaseViewController {
     }
     */
 
+}
+
+extension NearbyRequestDetailsViewController{
+    func rideAccept(params : ParamsAny){
+        self.startActivity()
+        GCD.async(.Background){
+        LoginService.shared().acceptRequest(params: params) { (message, success, response) in
+           GCD.async(.Main){
+           self.stopActivity()
+            if(success){
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                vc.isFromNotification = true
+                UserDefaultsManager.shared.isInRide = true
+                UserDefaultsManager.shared.rideId = Global.shared.requestId
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else{
+                 print("failure")
+            }
+        }
+      }
+    }
+  }
 }

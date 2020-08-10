@@ -61,7 +61,11 @@ class AddNewVehicleViewController: BaseViewController {
 }
 extension AddNewVehicleViewController{
     func addVehicleImage(params : ParamsString){
+        self.startActivity()
+                   GCD.async(.Background){
         LoginService.shared().uploadImage(params: params, profileImage: self.image) { (message, success, type , image) in
+                       GCD.async(.Main){
+                           self.stopActivity()
             if(success){
                 self.vehicleImage = image
                   self.showAlertView(message: message)
@@ -69,17 +73,25 @@ extension AddNewVehicleViewController{
             else{
                 self.showAlertView(message: "Failed to uplaod Image")
             }
+            }
+         }
         }
     }
     
     func registerVehicle(params : ParamsAny){
+        self.startActivity()
+                          GCD.async(.Background){
         LoginService.shared().registerVehicle(params: params) { (message, success, type) in
+                    GCD.async(.Main){
+                    self.stopActivity()
             if(success){
                 self.showAlertView(message: message)
             }
             else{
                  self.showAlertView(message: message)
             }
+          }
         }
+      }
     }
 }

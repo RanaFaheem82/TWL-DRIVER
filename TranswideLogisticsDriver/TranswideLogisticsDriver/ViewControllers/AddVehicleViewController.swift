@@ -88,7 +88,11 @@ extension AddVehicleViewController: UITableViewDelegate,UITableViewDataSource{
 
 extension AddVehicleViewController{
     func getVehicle(params :  ParamsAny){
+        self.startActivity()
+        GCD.async(.Background){
         LoginService.shared().getVehicle(params: params) { (message, success, type, list) in
+           GCD.async(.Main){
+             self.stopActivity()
             if(success){
                 self.vehicleList.vehicleList.removeAll()
                 self.vehicleList = list!
@@ -97,6 +101,8 @@ extension AddVehicleViewController{
             else{
                 self.showAlertView(message: "No vehicle Registered")
             }
+        }
+        }
         }
     }
 }

@@ -15,6 +15,11 @@ fileprivate struct UserDefaultsKeys {
     static let cart = "cart"
     static let ItemInCart = "ItemInCart"
     static let verificationID = "authVerificationID"
+    static let isInRide = "isInRide"
+    static let isReached = "isReached"
+    static let isStarted = "isStarted"
+    static let isEnded = "isEnded"
+    static let rideId = "rideId"
 }
 
 class UserDefaultsManager {
@@ -51,6 +56,54 @@ class UserDefaultsManager {
             return manager.bool(forKey: UserDefaultsKeys.isUserLoggedIn)
         }
     }
+    var isInRide:Bool {
+           set {
+               manager.set(newValue, forKey:UserDefaultsKeys.isInRide)
+               manager.synchronize()
+           }
+           get {
+               return manager.bool(forKey: UserDefaultsKeys.isInRide)
+           }
+       }
+    var isReached:Bool {
+              set {
+                  manager.set(newValue, forKey:UserDefaultsKeys.isReached)
+                  manager.synchronize()
+              }
+              get {
+                  return manager.bool(forKey: UserDefaultsKeys.isReached)
+              }
+          }
+    var isStarted:Bool {
+                 set {
+                     manager.set(newValue, forKey:UserDefaultsKeys.isStarted)
+                     manager.synchronize()
+                 }
+                 get {
+                     return manager.bool(forKey: UserDefaultsKeys.isStarted)
+                 }
+             }
+    var isEnded:Bool {
+                    set {
+                        manager.set(newValue, forKey:UserDefaultsKeys.isEnded)
+                        manager.synchronize()
+                    }
+                    get {
+                        return manager.bool(forKey: UserDefaultsKeys.isEnded)
+                    }
+                }
+    var rideId:String {
+        set {
+            manager.set(newValue, forKey:UserDefaultsKeys.rideId)
+            manager.synchronize()
+        }
+        get {
+            return manager.bool(forKey: UserDefaultsKeys.rideId)
+        }
+    }
+    
+    
+    
     var configurationUrl: String? {
         set{
             manager.set(newValue, forKey:UserDefaultsKeys.configurationUrl)

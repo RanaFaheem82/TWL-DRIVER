@@ -43,7 +43,11 @@ class LoginViewController: BaseViewController {
 
 extension LoginViewController{
     func getUserLogin(params : ParamsAny){
+        self.startActivity()
+        GCD.async(.Background){
         LoginService.shared().getUserLogin(params: params) { (message, success, user, response) in
+            GCD.async(.Main){
+            self.stopActivity()
             if(success){
                
                 PhoneAuthProvider.provider().verifyPhoneNumber(self.txtPhon.text!, uiDelegate: nil) { (verificationID, error) in
@@ -65,6 +69,8 @@ extension LoginViewController{
             else{
                 self.showAlertView(message: message)
             }
+          }
         }
-    }
+     }
+  }
 }
