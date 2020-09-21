@@ -67,7 +67,7 @@ struct AssetNames {
     static let backArrow = "back-1"
     static let logoutIcon = "logout icon"
     static let sideLogo = "sidemenu"
-    static let backarrow = "backarrow"
+    static let backarrow = "back-arrow"
     static let oval = "Oval"
   
 }

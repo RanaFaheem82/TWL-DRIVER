@@ -12,7 +12,8 @@ import GooglePlaces
 import Alamofire
 import Firebase
 
-class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMapViewDelegate , AddVehicleViewControllerDelegate{
+class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMapViewDelegate , AddVehicleViewControllerDelegate,FareCalculationViewControllerDelegate{
+   
    
     
     @IBOutlet weak var lblSeprator: UILabel!
@@ -86,7 +87,7 @@ class HomeViewController: BaseViewController ,CLLocationManagerDelegate , GMSMap
     @IBAction func actionReachedLocation(_ sender: Any) {
         
         if(self.isStart){
-            let params : ParamsAny = ["driverId" : Global.shared.user!.driverId,"userId": Global.shared.requestId,"fare":"5000"]
+            let params : ParamsAny = ["driverId" : Global.shared.user!.driverId,"userId": Global.shared.requestId,"fare":"660", "date" : Utilities.getStringFromDate(date: Date())]
             self.endRide(params: params)
         }
         else if(self.isReach){
@@ -182,6 +183,38 @@ extension HomeViewController{
         marker.map = mapView
         marker.isDraggable = true
     }
+    func close() {
+           if let container = self.mainContainer{
+                                    self.database.child("rides").child(Global.shared.requestId).removeAllObservers()
+                                            container.showHomeController()
+                                        }
+       }
+        func getTimeDifferenceForChat(date: Date) -> Int {
+    
+            let date1:Date = Date() // Same you did before with timeNow variable
+            let date2: Date = date
+            let calender:Calendar = Calendar.current
+            let components: DateComponents = calender.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2, to: date1)
+            print(components)
+            var returnString: Int! = 0
+            if components.year! >= 1 {
+                returnString = components.year!
+            }else if components.month! >= 1{
+                returnString = components.month!
+            }else if components.day! == 1{
+                returnString = components.day!
+            }else if components.day! > 1{
+                returnString = 1
+            }else if components.hour! >= 1{
+                returnString = components.hour!
+            }else if components.minute! >= 1{
+                returnString = components.minute!
+            }else if components.second! < 60 {
+                returnString = components.second
+            }
+            return returnString!
+        }
+       
 }
 
 
@@ -265,6 +298,9 @@ extension HomeViewController{
             if(success){
                 self.isReach = false
                 self.isStart = true
+                Global.shared.lat = self.lat
+                Global.shared.lng = self.lng
+                Global.shared.date = Date()
                 self.btnReached.setTitle("End Shipment", for: .normal)
             }
             else{
@@ -281,11 +317,8 @@ extension HomeViewController{
               GCD.async(.Main){
                 self.stopActivity()
             if(success){
-                
-                if let container = self.mainContainer{
-            self.database.child("rides").child(Global.shared.requestId).removeAllObservers()
-                    container.showHomeController()
-                }
+                let params : ParamsAny = ["driverId" : Global.shared.user!.driverId]
+                self.rideCompleted(params: params)
                }
                else{
                  print("Failure")
@@ -294,4 +327,31 @@ extension HomeViewController{
         }
     }
 }
+    func rideCompleted(params : ParamsAny){
+        self.startActivity()
+        GCD.async(.Background){
+
+        LoginService.shared().rideCompleted(params: params) { (message, success) in
+            GCD.async(.Main){
+                           self.stopActivity()
+            if(success){
+                let startLocation = CLLocation(latitude: Global.shared.lat!, longitude: Global.shared.lng!)
+                let endLocation = CLLocation(latitude: self.lat, longitude: self.lng)
+                let distance : CLLocationDistance = startLocation.distance(from: endLocation)
+              self.database.child("rides").child(Global.shared.requestId).setValue(["status" : "completed"])
+               let time =  self.getTimeDifferenceForChat(date: Date())
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "FareCalculationViewController") as! FareCalculationViewController
+                vc.delegate = self
+                vc.time = time
+                vc.distance = distance
+                self.present(vc, animated: true, completion: nil)
+                             
+            }
+            else{
+                self.showAlertView(message: message)
+            }
+            }
+          }
+        }
+    }
 }

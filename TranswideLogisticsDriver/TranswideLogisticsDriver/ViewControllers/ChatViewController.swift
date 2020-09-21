@@ -9,7 +9,9 @@
 import UIKit
 import FirebaseDatabase
 
-class ChatViewController: BaseViewController {
+class ChatViewController: BaseViewController ,TopBarDelegate{
+   
+    
     
      var chatList : [ChatViewModel] = [ChatViewModel]()
        var userId : String = ""
@@ -35,6 +37,17 @@ class ChatViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let container = self.mainContainer{
+            container.setTitle(title: "Chat")
+            container.setMenuButton(isBack: true)
+            container.delegate = self
+        }
+    }
+    func actionBack() {
+        self.navigationController?.popViewController(animated: true)
+       }
     
     @IBAction func actionSendMessage(_ sender: Any) {
         if(self.txfMessage.text == ""){

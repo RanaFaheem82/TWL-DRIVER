@@ -188,7 +188,7 @@ class Utilities {
     static func getStringFromDate(date:Date) -> String{
         let formatter = DateFormatter()
         
-        formatter.dateFormat = "dd MMM YYYY"
+        formatter.dateFormat = "dd-MM-YYY"
         let dateString = formatter.string(from: date)
         
         return dateString

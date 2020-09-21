@@ -486,4 +486,35 @@ class LoginService : BaseService{
                 })
 
         }
+    func rideCompleted(params:Parameters?,completion: @escaping (_ error: String, _ success: Bool)->Void){
+               let completeURL = EndPoints.BASE_URL + EndPoints.Completed
+
+              print("Params \(params!)")
+              print("URL \(completeURL)")
+              dataRequest = sessionManager.request(completeURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
+              
+              dataRequest?
+                  .validate(statusCode: 200...500)
+                  .responseJSON(completionHandler: { response in
+                      switch response.result {
+                      case .success(let value):
+                          let json = JSON(value)
+                          let parsedResponse = ResponseHandler.handleResponse(json)
+                          if parsedResponse.serviceResponseType == .Success {
+                              print(json)
+                            
+                            //  self.saveUserInfo(userInfo)
+                              completion(parsedResponse.message,true)
+                          }else {
+                              completion(parsedResponse.message,false)
+                          }
+                          
+                      case .failure(let error):
+                          let errorMessage:String = error.localizedDescription
+                          print(errorMessage)
+                          completion(errorMessage, false)
+                      }
+                  })
+              
+          }
 }

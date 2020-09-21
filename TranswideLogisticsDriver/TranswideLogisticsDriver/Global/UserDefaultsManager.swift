@@ -98,7 +98,7 @@ class UserDefaultsManager {
             manager.synchronize()
         }
         get {
-            return manager.bool(forKey: UserDefaultsKeys.rideId)
+            return manager.value(forKey: UserDefaultsKeys.rideId) as! String
         }
     }
     

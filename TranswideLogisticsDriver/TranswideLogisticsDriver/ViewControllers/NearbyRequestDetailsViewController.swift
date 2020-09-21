@@ -11,6 +11,7 @@ import Firebase
 
 class NearbyRequestDetailsViewController: BaseViewController {
 
+    @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var lblGoodsInfo: UILabel!
     @IBOutlet weak var lblUserNotes: UILabel!
     @IBOutlet weak var lblGoodWeight: UILabel!
@@ -26,15 +27,18 @@ class NearbyRequestDetailsViewController: BaseViewController {
     func configureView(){
          self.database = Database.database().reference()
         print(Global.shared.requestId)
+         self.startActivity()
         self.database.child("rides").child(Global.shared.requestId).observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
+            self.stopActivity()
           let value = snapshot.value as? NSDictionary
             self.lblPickup.text = value?["pickup"] as? String ?? ""
             self.lblDestination.text = value?["destination"] as? String ?? ""
             self.lblGoodWeight.text = value?["weight"] as? String ?? ""
+            self.lblType.text = value?["type"] as? String ?? ""
             self.lblGoodsInfo.text = value?["GoodsDetails"] as? String ?? ""
             self.lblUserNotes.text = value?["notes"] as? String ?? ""
-         
+            
 
           // ...
           }) { (error) in
@@ -77,6 +81,7 @@ extension NearbyRequestDetailsViewController{
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 vc.isFromNotification = true
                 UserDefaultsManager.shared.isInRide = true
+                Global.shared.isInRide = true
                 UserDefaultsManager.shared.rideId = Global.shared.requestId
                 self.navigationController?.pushViewController(vc, animated: true)
             }

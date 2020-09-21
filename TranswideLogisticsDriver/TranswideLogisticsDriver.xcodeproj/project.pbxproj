@@ -10,6 +10,8 @@
 		181025472459402100FF72E7 /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181025462459402100FF72E7 /* AddVehicleViewController.swift */; };
 		181025492459424600FF72E7 /* AddVehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181025482459424500FF72E7 /* AddVehicleTableViewCell.swift */; };
 		181731CE24A7618800598D19 /* NearbyRequestDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181731CD24A7618800598D19 /* NearbyRequestDetailsViewController.swift */; };
+		183F0C9124E6BBF500502CD5 /* ManufaturingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F0C9024E6BBF500502CD5 /* ManufaturingTableViewCell.swift */; };
+		183F0C9324E7B04400502CD5 /* FareCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F0C9224E7B04400502CD5 /* FareCalculationViewController.swift */; };
 		1840FCFF24D14F19004774C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1840FCFE24D14F19004774C5 /* GoogleService-Info.plist */; };
 		1847F95D245D960F00C2489E /* AddNewVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847F95C245D960F00C2489E /* AddNewVehicleViewController.swift */; };
 		1847F95F245D963000C2489E /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847F95E245D963000C2489E /* DocumentViewController.swift */; };
@@ -138,6 +140,8 @@
 		181025482459424500FF72E7 /* AddVehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleTableViewCell.swift; sourceTree = "<group>"; };
 		181731CD24A7618800598D19 /* NearbyRequestDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyRequestDetailsViewController.swift; sourceTree = "<group>"; };
 		181731CF24A768ED00598D19 /* TWL DRIVER.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TWL DRIVER.entitlements"; sourceTree = "<group>"; };
+		183F0C9024E6BBF500502CD5 /* ManufaturingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufaturingTableViewCell.swift; sourceTree = "<group>"; };
+		183F0C9224E7B04400502CD5 /* FareCalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareCalculationViewController.swift; sourceTree = "<group>"; };
 		1840FCFE24D14F19004774C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1847F95C245D960F00C2489E /* AddNewVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVehicleViewController.swift; sourceTree = "<group>"; };
 		1847F95E245D963000C2489E /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
@@ -639,6 +643,7 @@
 				1859828824D9B3FF00B232C5 /* SenderTableViewCell.swift */,
 				187B41D324592400001A3E4A /* SettingsTableViewCell.swift */,
 				181025482459424500FF72E7 /* AddVehicleTableViewCell.swift */,
+				183F0C9024E6BBF500502CD5 /* ManufaturingTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 				184C87C7245DBB8800DE8774 /* SignUpViewController.swift */,
 				184C87C9245DBC2C00DE8774 /* MainViewController.swift */,
 				181731CD24A7618800598D19 /* NearbyRequestDetailsViewController.swift */,
+				183F0C9224E7B04400502CD5 /* FareCalculationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1062,6 +1068,7 @@
 				187B418124591A9C001A3E4A /* RequestMessages.swift in Sources */,
 				187B41CB24591A9C001A3E4A /* Protocols.swift in Sources */,
 				187B416624591A9C001A3E4A /* KYDrawerController.swift in Sources */,
+				183F0C9324E7B04400502CD5 /* FareCalculationViewController.swift in Sources */,
 				187B418C24591A9C001A3E4A /* UserViewModel.swift in Sources */,
 				187B417524591A9C001A3E4A /* CustomIOSAlertView.m in Sources */,
 				187B419B24591A9C001A3E4A /* FCMNotificationViewModel.swift in Sources */,
@@ -1114,6 +1121,7 @@
 				187B416124591A9C001A3E4A /* MKConfig.swift in Sources */,
 				187B415924591A9C001A3E4A /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				1847F95F245D963000C2489E /* DocumentViewController.swift in Sources */,
+				183F0C9124E6BBF500502CD5 /* ManufaturingTableViewCell.swift in Sources */,
 				187B41C624591A9C001A3E4A /* Validations.swift in Sources */,
 				187B41C324591A9C001A3E4A /* Utilities.swift in Sources */,
 			);
@@ -1220,7 +1228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1274,7 +1282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1293,7 +1301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5MVY25HYQD;
 				INFOPLIST_FILE = TranswideLogisticsDriver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1315,7 +1323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5MVY25HYQD;
 				INFOPLIST_FILE = TranswideLogisticsDriver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

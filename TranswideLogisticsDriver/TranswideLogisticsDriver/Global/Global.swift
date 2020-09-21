@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import StoreKit
+import GoogleMaps
 
 class Global {
     class var shared : Global {
@@ -26,6 +27,9 @@ class Global {
     var isInRide : Bool = false
        var currentNavigationController = ""
        var currentStoryBoard = ""
+    var lat : CLLocationDegrees!
+    var lng : CLLocationDegrees!
+    var date : Date!
        
     
   }

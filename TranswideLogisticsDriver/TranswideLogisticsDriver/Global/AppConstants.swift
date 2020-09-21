@@ -100,7 +100,7 @@ struct EndPoints {
     static let newPassword   = "new-password"
     static let getFavouritelist       = "get-favourite-list"
     static let remove_favourite         = "remove-favourite"
-    static let BASE_URL                 = "http://fe63e9b5c74e.ngrok.io/"
+    static let BASE_URL                 = "http://b971505ca0a8.ngrok.io/"
     //static let BASE_URL                 = "http://mashghol.com/tawrid/public/api/"
     //static let logout                   = "\(Global.shared.url)/driverapi/logout"
     
@@ -124,6 +124,7 @@ struct EndPoints {
     static let registerVehicle = "vehicle"
     static let documents = "documents"
     static let onlineStatus = "available/status"
+    static let Completed = "available/message/Completed"
     
     
     

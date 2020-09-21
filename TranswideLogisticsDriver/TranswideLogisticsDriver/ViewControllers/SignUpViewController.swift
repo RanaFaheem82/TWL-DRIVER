@@ -30,6 +30,12 @@ class SignUpViewController: BaseViewController {
         self.getUserRegister(params: params)
     }
     
+    
+    @IBAction func actionBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

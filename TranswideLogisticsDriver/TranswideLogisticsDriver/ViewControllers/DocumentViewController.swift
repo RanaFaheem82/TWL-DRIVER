@@ -135,7 +135,9 @@ extension DocumentViewController{
                     GCD.async(.Main){
                         self.stopActivity()
                         if(success){
-                            self.showAlertView(message: message)
+                             self.showAlertView(message: message, title: LocalStrings.success, doneButtonTitle: LocalStrings.ok) { (action) in
+                                self.navigationController?.popViewController(animated: true)
+                          }
                         }
                         else{
                             self.showAlertView(message: message)
